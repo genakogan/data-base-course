@@ -1,2 +1,2 @@
 # data-base-course
-# Solution all labs for SCE using postgresql and sql developer
+## Solve all the labs for SCE using PostgreSQL and SQL Developer.
