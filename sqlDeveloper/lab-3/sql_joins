@@ -1,0 +1,174 @@
+## ==================================================================================
+## ==================================================================================
+
+
+1. Cartesian product
+
+This is when every row from the first table is combined with every row from the second table.
+
+Example:
+
+	SELECT *
+	FROM A, B;
+
+If A has 2 rows and B has 3 rows, the result will have 6 rows.
+
+## ==================================================================================
+## ==================================================================================
+
+
+2. Equal join
+
+This is a join where rows are matched using the = condition.
+
+Example:
+
+	SELECT *
+	FROM A
+	JOIN B ON A.id = B.id;
+
+It shows only the rows where the key values match.
+
+## ==================================================================================
+## ==================================================================================
+
+
+3. Outer join
+
+This shows not only matching rows, but also rows that exist in only one of the tables.
+
+There are three main types:
+
+3.1 LEFT OUTER JOIN
+
+Example: 
+
+	SELECT *
+	FROM A
+	LEFT JOIN B ON A.id = B.id;
+
+Shows all rows from A and matching rows from B.
+
+3.2 RIGHT OUTER JOIN
+
+Example:
+
+	SELECT *
+	FROM A
+	RIGHT JOIN B ON A.id = B.id;
+
+Shows all rows from B and matching rows from A.
+
+3.3 FULL OUTER JOIN
+
+Example:
+
+	SELECT *
+	FROM A
+	FULL OUTER JOIN B ON A.id = B.id;
+
+Shows all rows from both tables.
+
+## ==================================================================================
+## ==================================================================================
+
+4. Self join
+
+A table is joined to itself.
+
+Example:
+
+	SELECT *
+	FROM Employees e1
+	JOIN Employees e2 ON e1.manager_id = e2.id;
+
+This is useful, for example, for finding an employee and their manager.
+
+## ==================================================================================
+## ==================================================================================
+
+5. Join based on inequality
+
+The join is done not with =, but with >, <, <>, and so on.
+
+Example:
+
+	SELECT *
+	FROM A
+	JOIN B ON A.value > B.value;
+
+It is used less often, for example for ranges or comparisons.
+
+## ==================================================================================
+## ==================================================================================
+
+6. Union
+
+Combines the results of two queries into one list.
+
+Example:
+
+	SELECT name FROM A
+	UNION
+	SELECT name FROM B;
+
+UNION usually removes duplicates.
+
+If you want to keep duplicates:
+
+Example: 
+
+	SELECT name FROM A
+	UNION ALL
+	SELECT name FROM B;
+
+## ==================================================================================
+## ==================================================================================
+
+7. Intersect
+
+Shows only the rows that exist in both the first and the second query.
+
+Example:
+
+	SELECT name FROM A
+	INTERSECT
+	SELECT name FROM B;
+
+That is, only the common values.
+
+## ==================================================================================
+## ==================================================================================
+
+8. Minus
+
+Shows rows that exist in the first query but not in the second.
+
+Example:
+
+	SELECT name FROM A
+	MINUS
+	SELECT name FROM B;
+
+In some databases, EXCEPT is used instead of MINUS.
+
+## ==================================================================================
+## ==================================================================================
+
+9. Duplicates
+
+These are repeated values in the result.
+
+Example:
+
+	SELECT name
+	FROM A;
+
+If table A contains repeated names, they will also appear in the result.
+
+To remove duplicates:
+
+Example:
+
+	SELECT DISTINCT name
+	FROM A;
